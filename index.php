@@ -1,7 +1,12 @@
 <?php
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 include 'classes/Recipe.php';
-include 'classes/Render.php';
+include 'vendor/Render/Render.php';
+
+use vendor\Render\Render as Render;
 
 $recipe = new Recipe();
 

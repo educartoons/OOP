@@ -1,5 +1,7 @@
 <?php
 
+namespace vendor\Render;
+
 class Initial
 {
   public static function version()
