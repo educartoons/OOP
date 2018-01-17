@@ -2,14 +2,6 @@
 
 namespace vendor\Render;
 
-class Initial
-{
-  public static function version()
-  {
-    echo '1.0.0';
-  }
-}
-
 class Render
 {
   public static function listIngredients($recipe)
