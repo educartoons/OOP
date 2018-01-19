@@ -3,16 +3,23 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$message = "Hey guys !";
+function checkIfInteger($num){
+  if($num<0){
+    throw new Exception('Debes insertar un entero');
+  }else{
+    return 'Si es un entero';
+  }
+}
 
-$joel = function(){
-  var_dump ($message);
-};
+$numbers = array(2, -5, 10);
 
-// joel();
+foreach ($numbers as $value) {
+  // echo checkIfInteger($value) . '<br>';
+  try{
+    echo checkIfInteger($value) . '<br>';
+  }catch(Exception $e){
+    echo 'Ha habido una excepcion: ' . $e->getMessage() . '<br>';
+  }
+}
 
-$eduar = function () use ($message){
-  var_dump($message);
-};
-
-$eduar();
+echo 'Fin de la aplicacion';
