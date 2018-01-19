@@ -3,23 +3,22 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-function checkIfInteger($num){
-  if($num<0){
-    throw new Exception('Debes insertar un entero');
-  }else{
-    return 'Si es un entero';
+class MyCustomException extends Exception{
+  public function errorMessage(){
+    $errorMessage = 'Esta no es una direccion de email valida';
+    return $errorMessage;
   }
 }
 
-$numbers = array(2, -5, 10);
+$email = 'eduar@\haddadandpartners.com';
 
-foreach ($numbers as $value) {
-  // echo checkIfInteger($value) . '<br>';
-  try{
-    echo checkIfInteger($value) . '<br>';
-  }catch(Exception $e){
-    echo 'Ha habido una excepcion: ' . $e->getMessage() . '<br>';
+try{
+  if(filter_var($email, FILTER_VALIDATE_EMAIL) === FALSE){
+    throw new MyCustomException($email);
   }
+}catch(MyCustomException $e){
+  echo $e->errorMessage();
 }
 
-echo 'Fin de la aplicacion';
+
+//echo 'Fin de la aplicacion';
