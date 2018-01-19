@@ -3,20 +3,16 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-include 'classes/Recipe.php';
-include 'vendor/Render/Render.php';
+$message = "Hey guys !";
 
-use vendor\Render\Render as Render;
+$joel = function(){
+  var_dump ($message);
+};
 
-$recipe = new Recipe('BBQ Wings');
+// joel();
 
-$recipe->addIngredient('onions');
-$recipe->addIngredient('potatoes');
-$recipe->addIngredient('carrots');
+$eduar = function () use ($message){
+  var_dump($message);
+};
 
-// echo $recipe->getTitle() . '<br>';
-//
-// echo Render::listIngredients($recipe);
-
-echo $recipe;
-// var_dump($recipe);
+$eduar();

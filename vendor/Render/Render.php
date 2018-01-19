@@ -1,6 +1,6 @@
 <?php
 
-namespace vendor\Render;
+namespace Mike\vendor\Render;
 
 class Render
 {
